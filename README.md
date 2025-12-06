@@ -16,6 +16,30 @@ A complete admin dashboard built with PHP, MySQL, and JavaScript for user and tr
 - MySQL 5.7+
 - XAMPP/WAMP/MAMP (recommended)
 
+## 📸 Screenshots
+
+### Login 
+[!Login](screenshots/login.png)
+
+### Dashboard
+[!Dashboard](screenshots/dashboard.png)
+[!Dashboard](screenshots/dashboard2.png)
+
+### Users Management
+[!Users Management](screenshots/utilisaterus.png)
+
+### Ventes
+[!Ventes](screenshots/ventes.png)
+[!Ventes](screenshots/ventes2.png)
+
+### Analytics
+[!Analytic](screenshots/analytiques.png)
+[!Analytic](screenshots/analytiques2.png)
+
+### Settings
+[!Settings](screenshots/parametres.png)
+
+
 ### Setup Instructions
 ```
 1. **Copy files to your server folder**
