@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytique - Dashboard Admin</title>
+    <link rel="stylesheet" href="acceuil.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="#6366f1"/>
+                    <path d="M12 20L18 26L28 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1>AdminPanel</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="acceuil.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Tableau de bord</span>
+                </a>
+                <a href="utilisateurs.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>Utilisateurs</span>
+                </a>
+                <a href="ventes.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <span>Ventes</span>
+                </a>
+                <a href="analytique.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <span>Analytique</span>
+                </a>
+                <a href="parametres.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m8.66-11.66l-4.24 4.24m-4.24 4.24l-4.24 4.24m16.48-2.34l-6-1.73m-6-1.73l-6-1.73m2.34-8.66l1.73 6m1.73 6l1.73 6"></path>
+                    </svg>
+                    <span>Paramètres</span>
+                </a>
+            </nav>
+<div class="logout-section">
+    <a href="php/logout.php" class="logout-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Déconnexion</span>
+    </a>
+</div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">MN</div>
+                    <div class="user-info">
+                        <p class="user-name">Mohamed Amin Neji</p>
+                        <p class="user-role">Administrateur</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" aria-label="Toggle menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                    <h2>Analytique Avancée</h2>
+                </div>
+                <div class="header-right">
+                    <button class="btn-export">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Exporter
+                    </button>
+                    <select class="period-select">
+                        <option>7 derniers jours</option>
+                        <option selected>30 derniers jours</option>
+                        <option>90 derniers jours</option>
+                        <option>12 derniers mois</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- KPIs Grid -->
+            <section class="stats-grid kpi-grid">
+                <article class="stat-card kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Visites Totales</h3>
+                        <p class="stat-value">324 567</p>
+                        <p class="stat-change positive">+24.5% vs période précédente</p>
+                    </div>
+                </article>
+
+                <article class="stat-card kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Visiteurs Uniques</h3>
+                        <p class="stat-value">182 439</p>
+                        <p class="stat-change positive">+18.2% vs période précédente</p>
+                    </div>
+                </article>
+
+                <article class="stat-card kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Taux de Rebond</h3>
+                        <p class="stat-value">42.3%</p>
+                        <p class="stat-change negative">-5.7% vs période précédente</p>
+                    </div>
+                </article>
+
+                <article class="stat-card kpi-card">
+                    <div class="kpi-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Durée Moyenne</h3>
+                        <p class="stat-value">4m 32s</p>
+                        <p class="stat-change positive">+12.8% vs période précédente</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Traffic Sources -->
+            <section class="two-column-grid">
+                <article class="chart-card">
+                    <div class="card-header">
+                        <h3>Sources de Trafic</h3>
+                    </div>
+                    <div class="traffic-sources">
+                        <div class="traffic-item">
+                            <div class="traffic-info">
+                                <div class="traffic-icon" style="background: #667eea;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <path d="m21 21-4.35-4.35"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="traffic-name">Recherche Organique</p>
+                                    <p class="traffic-count">142 340 visites</p>
+                                </div>
+                            </div>
+                            <div class="traffic-stats">
+                                <span class="traffic-percent">43.8%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 43.8%; background: #667eea;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="traffic-item">
+                            <div class="traffic-info">
+                                <div class="traffic-icon" style="background: #f093fb;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="traffic-name">Liens Directs</p>
+                                    <p class="traffic-count">97 567 visites</p>
+                                </div>
+                            </div>
+                            <div class="traffic-stats">
+                                <span class="traffic-percent">30.1%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 30.1%; background: #f093fb;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="traffic-item">
+                            <div class="traffic-info">
+                                <div class="traffic-icon" style="background: #4facfe;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="traffic-name">Réseaux Sociaux</p>
+                                    <p class="traffic-count">58 234 visites</p>
+                                </div>
+                            </div>
+                            <div class="traffic-stats">
+                                <span class="traffic-percent">17.9%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 17.9%; background: #4facfe;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="traffic-item">
+                            <div class="traffic-info">
+                                <div class="traffic-icon" style="background: #43e97b;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="traffic-name">Email Marketing</p>
+                                    <p class="traffic-count">26 426 visites</p>
+                                </div>
+                            </div>
+                            <div class="traffic-stats">
+                                <span class="traffic-percent">8.2%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 8.2%; background: #43e97b;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="chart-card">
+                    <div class="card-header">
+                        <h3>Appareils Utilisés</h3>
+                    </div>
+                    <div class="devices-chart">
+                        <div class="device-rings">
+                            <svg viewBox="0 0 200 200" width="200" height="200">
+                                <!-- Desktop -->
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#e5e7eb" stroke-width="30"></circle>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#667eea" stroke-width="30" 
+                                        stroke-dasharray="502" stroke-dashoffset="150" transform="rotate(-90 100 100)"></circle>
+                                
+                                <!-- Mobile -->
+                                <circle cx="100" cy="100" r="50" fill="none" stroke="#e5e7eb" stroke-width="25"></circle>
+                                <circle cx="100" cy="100" r="50" fill="none" stroke="#f093fb" stroke-width="25" 
+                                        stroke-dasharray="314" stroke-dashoffset="94" transform="rotate(-90 100 100)"></circle>
+                                
+                                <!-- Tablet -->
+                                <circle cx="100" cy="100" r="25" fill="none" stroke="#e5e7eb" stroke-width="20"></circle>
+                                <circle cx="100" cy="100" r="25" fill="none" stroke="#4facfe" stroke-width="20" 
+                                        stroke-dasharray="157" stroke-dashoffset="110" transform="rotate(-90 100 100)"></circle>
+                            </svg>
+                        </div>
+                        <div class="devices-legend">
+                            <div class="device-item">
+                                <span class="device-color" style="background: #667eea;"></span>
+                                <div>
+                                    <p class="device-name">Desktop</p>
+                                    <p class="device-percent">54%</p>
+                                </div>
+                                <p class="device-count">175 266</p>
+                            </div>
+                            <div class="device-item">
+                                <span class="device-color" style="background: #f093fb;"></span>
+                                <div>
+                                    <p class="device-name">Mobile</p>
+                                    <p class="device-percent">36%</p>
+                                </div>
+                                <p class="device-count">116 844</p>
+                            </div>
+                            <div class="device-item">
+                                <span class="device-color" style="background: #4facfe;"></span>
+                                <div>
+                                    <p class="device-name">Tablette</p>
+                                    <p class="device-percent">10%</p>
+                                </div>
+                                <p class="device-count">32 457</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Page Views Chart -->
+            <section class="chart-card-full">
+                <div class="card-header">
+                    <h3>Pages Vues par Jour</h3>
+                    <div class="chart-legend-inline">
+                        <span class="legend-item-inline">
+                            <span class="legend-dot" style="background: #667eea;"></span>
+                            Cette période
+                        </span>
+                        <span class="legend-item-inline">
+                            <span class="legend-dot" style="background: #e5e7eb;"></span>
+                            Période précédente
+                        </span>
+                    </div>
+                </div>
+                <div class="analytics-chart">
+                    <div class="chart-bars-comparison">
+                        <div class="bar-group">
+                            <div class="bar-dual">
+                                <div class="bar-back" style="height: 50%;"></div>
+                                <div class="bar-front" style="height: 65%;"></div>
+                            </div>
+                            <span class="bar-label">01</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-dual">
+                                <div class="bar-back" style="height: 55%;"></div>
+                                <div class="bar-front" style="height: 70%;"></div>
+                            </div>
+                            <span class="bar-label">05</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-dual">
+                                <div class="bar-back" style="height: 48%;"></div>
+                                <div class="bar-front" style="height: 60%;"></div>
+                            </div>
+                            <span class="bar-label">10</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-dual">
+                                <div class="bar-back" style="height: 62%;"></div>
+                                <div class="bar-front" style="height: 80%;"></div>
+                            </div>
+                            <span class="bar-label">15</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-dual">
+                                <div class="bar-back" style="height: 58%;"></div>
+                                <div class="bar-front" style="height: 75%;"></div>
+                            </div>
+                            <span class="bar-label">20</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-dual">
+                                <div class="bar-back" style="height: 70%;"></div>
+                                <div class="bar-front" style="height: 90%;"></div>
+                            </div>
+                            <span class="bar-label">25</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar-dual">
+                                <div class="bar-back" style="height: 65%;"></div>
+                                <div class="bar-front" style="height: 85%;"></div>
+                            </div>
+                            <span class="bar-label">30</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Pages -->
+            <section class="table-card">
+                <div class="card-header">
+                    <h3>Pages les Plus Visitées</h3>
+                    <button class="btn-text">Voir le rapport complet</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Page</th>
+                                <th>Vues</th>
+                                <th>Visiteurs Uniques</th>
+                                <th>Durée Moy.</th>
+                                <th>Taux de Rebond</th>
+                                <th>Tendance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>/accueil</strong></td>
+                                <td>54 321</td>
+                                <td>42 156</td>
+                                <td>3m 24s</td>
+                                <td>38.5%</td>
+                                <td><span class="trend positive">+12.5%</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>/produits</strong></td>
+                                <td>38 742</td>
+                                <td>31 284</td>
+                                <td>5m 12s</td>
+                                <td>42.1%</td>
+                                <td><span class="trend positive">+8.3%</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>/blog</strong></td>
+                                <td>24 567</td>
+                                <td>19 842</td>
+                                <td>6m 45s</td>
+                                <td>35.2%</td>
+                                <td><span class="trend positive">+15.7%</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>/contact</strong></td>
+                                <td>18 234</td>
+                                <td>16 923</td>
+                                <td>2m 18s</td>
+                                <td>52.4%</td>
+                                <td><span class="trend negative">-3.2%</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>/a-propos</strong></td>
+                                <td>12 456</td>
+                                <td>10 845</td>
+                                <td>4m 32s</td>
+                                <td>45.8%</td>
+                                <td><span class="trend positive">+5.1%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        document.querySelector('.main-content').addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.sidebar').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
