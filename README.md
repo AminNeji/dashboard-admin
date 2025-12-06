@@ -19,25 +19,25 @@ A complete admin dashboard built with PHP, MySQL, and JavaScript for user and tr
 ## 📸 Screenshots
 
 ### Login 
-[!Login](screenshots/login.png)
+[!Login](screenshots/login.PNG)
 
 ### Dashboard
-[!Dashboard](screenshots/dashboard.png)
-[!Dashboard](screenshots/dashboard2.png)
+[!Dashboard](screenshots/dashboard.PNG)
+[!Dashboard](screenshots/dashboard2.PNG)
 
 ### Users Management
-[!Users Management](screenshots/utilisaterus.png)
+[!Users Management](screenshots/utilisaterus.PNG)
 
 ### Ventes
-[!Ventes](screenshots/ventes.png)
-[!Ventes](screenshots/ventes2.png)
+[!Ventes](screenshots/ventes.PNG)
+[!Ventes](screenshots/ventes2.PNG)
 
 ### Analytics
-[!Analytic](screenshots/analytiques.png)
-[!Analytic](screenshots/analytiques2.png)
+[!Analytic](screenshots/analytiques.PNG)
+[!Analytic](screenshots/analytiques2.PNG)
 
 ### Settings
-[!Settings](screenshots/parametres.png)
+[!Settings](screenshots/parametres.PNG)
 
 
 ### Setup Instructions
@@ -90,7 +90,7 @@ dashboard-admin/
 │ ├── api_stats.php # Statistics API
 │ ├── export_csv.php # CSV export functionality
 │ └── test.php # Testing script
-└── issatso.png # Institution logo
+└── issatso.PNG # Institution logo
 
 ```
 
