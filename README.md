@@ -19,25 +19,25 @@ A complete admin dashboard built with PHP, MySQL, and JavaScript for user and tr
 ## 📸 Screenshots
 
 ### Login 
-[!Login](screenshots/login.PNG)
+![Login](screenshots/login.PNG)
 
 ### Dashboard
-[!Dashboard](screenshots/dashboard.PNG)
-[!Dashboard](screenshots/dashboard2.PNG)
+![Dashboard](screenshots/dashboard.PNG)
+![Dashboard](screenshots/dashboard2.PNG)
 
 ### Users Management
-[!Users Management](screenshots/utilisaterus.PNG)
+![Users Management](screenshots/utilisaterus.PNG)
 
 ### Ventes
-[!Ventes](screenshots/ventes.PNG)
-[!Ventes](screenshots/ventes2.PNG)
+![Ventes](screenshots/ventes.PNG)
+![Ventes](screenshots/ventes2.PNG)
 
 ### Analytics
-[!Analytic](screenshots/analytiques.PNG)
-[!Analytic](screenshots/analytiques2.PNG)
+![Analytic](screenshots/analytiques.PNG)
+![Analytic](screenshots/analytiques2.PNG)
 
 ### Settings
-[!Settings](screenshots/parametres.PNG)
+![Settings](screenshots/parametres.PNG)
 
 
 ### Setup Instructions
